@@ -8,13 +8,15 @@ const PORT = 3000;
 app.use(express.urlencoded({ extended: false }));
 
 app.post('/webhook',  twilio.webhook(config.twilioAuthToken),(req: Request, res: Response) => {
+  console.log(req.body);
   const twiml = new twilio.twiml.MessagingResponse();
   twiml.message('Message received! Hello again from the Twilio Sandbox for WhatsApp.');
   res.type('text/xml').send(twiml.toString());
 
 });
 app.get('/health', (req: Request, res: Response) => {
-    res.status(200).json({ status: 'healthy' });
+  console.log(req.body);  
+  res.status(200).json({ status: 'healthy' });
 });
 
 app.listen(PORT, () => {
