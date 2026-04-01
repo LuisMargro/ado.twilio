@@ -1,17 +1,19 @@
 import express, { type Response, type Request } from 'express';
 import twilio from 'twilio';
 import config from './config/app.conf.js';
+import sendMessage from './messages/send.message.js';
+import { parseMessage }from './messages/parse.message.js';
 
 const app = express();
 const PORT = 3000;
 
 app.use(express.urlencoded({ extended: false }));
 
-app.post('/webhook',  twilio.webhook(config.twilioAuthToken),(req: Request, res: Response) => {
-  console.log(req.body);
-  const twiml = new twilio.twiml.MessagingResponse();
-  twiml.message('Message received! Hello again from the Twilio Sandbox for WhatsApp.');
-  res.type('text/xml').send(twiml.toString());
+app.post('/webhook',  twilio.webhook(config.twilioAuthToken), async(req: Request, res: Response) => {
+  const message = parseMessage(req.body);
+  message.body = 'hola tu mensaje fue el siguiente: ' + message.body;
+  await sendMessage(message);
+  res.status(200).json({ok: true, msg: 'mensaje envaido'});
 
 });
 app.get('/health', (req: Request, res: Response) => {

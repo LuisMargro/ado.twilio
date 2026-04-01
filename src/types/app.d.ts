@@ -6,8 +6,13 @@ const configSchema = z.object({
     twilioNumber: z.string()
 });
 type AppConfig = z.infer<typeof configSchema>;
-
+type Message = {
+    waId: string, 
+    body: string,
+    smsSid: string,
+}
 export{
     type AppConfig,
+    type Message,
     configSchema
 };
