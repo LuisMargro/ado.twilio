@@ -1,7 +1,7 @@
 import { MessageInstance } from 'twilio/lib/rest/api/v2010/account/message.js';
 import client from '../config/twilio.conf.js';
 import appConfig from '../config/app.conf.js';
-import { type Message } from '../types/app.js';
+import { type Message } from '../types/app.d.js';
 /**
  * Envia un mensaje de texto plano a whatsapp usando la configuracion por defecto
  * @param message Objecto con la informacion del mensaje a responder
