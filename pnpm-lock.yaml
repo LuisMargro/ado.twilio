@@ -17,6 +17,9 @@ importers:
       twilio:
         specifier: 5.13.1
         version: 5.13.1
+      zod:
+        specifier: ^4.3.6
+        version: 4.3.6
     devDependencies:
       '@eslint/js':
         specifier: 10.0.1
@@ -37,7 +40,7 @@ importers:
         specifier: 17.4.0
         version: 17.4.0
       tsx:
-        specifier: ^4.21.0
+        specifier: 4.21.0
         version: 4.21.0
       typescript:
         specifier: 6.0.2
@@ -1059,6 +1062,9 @@ packages:
   yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+
+  zod@4.3.6:
+    resolution: {integrity: sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg==}
 
 snapshots:
 
@@ -2087,3 +2093,5 @@ snapshots:
   xmlbuilder@13.0.2: {}
 
   yocto-queue@0.1.0: {}
+
+  zod@4.3.6: {}
