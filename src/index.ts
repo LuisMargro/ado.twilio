@@ -8,6 +8,7 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.urlencoded({ extended: false }));
+app.set('trust proxy', true);
 
 app.post('/webhook',  twilio.webhook(config.twilioAuthToken), async(req: Request, res: Response) => {
   const message = parseMessage(req.body);
