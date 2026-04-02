@@ -11,7 +11,7 @@ async function sendMessage(message : Message): Promise<MessageInstance> {
     const twilioMessage = await client.messages.create({
         body: message.body,
         from: `whatsapp:+${appConfig.twilioNumber}`,
-        to: `whatsapp:${message.waId}`
+        to: `whatsapp:+${message.waId}`
     });
     return twilioMessage;
 }
